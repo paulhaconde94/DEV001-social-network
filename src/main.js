@@ -2,4 +2,7 @@
 
 import { myFunction } from './lib/index.js';
 
+console.log('Hola Mundo');
+
 myFunction();
+
