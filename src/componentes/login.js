@@ -1,22 +1,6 @@
-// eslint-disable-next-line import/no-cycle
+import { signIn, signInGoogle } from '../lib/firebase.js';
 
-/* export const Login = (onNavigate) => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Bienvenida al Login';
-  const buttonHome = document.createElement('button');
-
-  buttonHome.textContent = 'Regresar al Home';
-
-  buttonHome.addEventListener('click', () => onNavigate('/'));
-
-  HomeDiv.appendChild(buttonHome);
-
-  return HomeDiv;
-}; */
-// import { Muro } from './componentes/muro.js';
-import { signIn } from '../lib/firebase.js';
-
-export const Login = () => {
+export const Login = (onNavigate) => {
   const loginDiv = document.createElement('div');
   const template = `
   <div class="formBox" id="formBox">
@@ -36,10 +20,10 @@ export const Login = () => {
   </form>
   <div class="signUpgoogle">
       <h3>Continua con Google</h3>
-      <button id="buttonGmail" type="button"><img class="google-icon" src="images/google.png"></button>
+      <button id="btnGmail" class="btnGmail" type="button"><img class="google-icon" src="images/google.png"></button>
   </div>
 </div> `;
-  // mostrar template para mostrar  contenido  en la pagina
+  // Muestra template para visualizar contenido  de la pagina
   loginDiv.innerHTML = template;
   const btnIniciar = loginDiv.querySelector('#btnIniciar');
   btnIniciar.addEventListener('click', (e) => {
@@ -47,9 +31,20 @@ export const Login = () => {
     const correo = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
     signIn(correo, password)
-      .then(() => ('/muro'));
-    // console.log('lograr que este console log se imprima cuando se haya logueado con exito');
-    // -- por aca mas o menos ya el hace login
+      .then(() => onNavigate('/muro'))
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+  });
+  const btnGmail = loginDiv.querySelector('#btnGmail');
+  btnGmail.addEventListener('click', () => {
+    signInGoogle()
+      .then(() => {
+        onNavigate('/muro');
+      }).catch((error) => {
+        console.log(error);
+      });
   });
   return loginDiv;
 };

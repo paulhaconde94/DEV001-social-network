@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #FFFFFF;
+    background: linear-gradient(180deg, #afafb3 36.98%, #a6a7aa 69.27%, #b3b4b8 100%);
     vertical-align: top;
     display: flex;
     align-items: center;
@@ -22,6 +22,12 @@ body {
     align-items: center;
 }
 
+.logo{
+    margin-top: 20%;
+    width: 240px;
+
+}
+
 .formBox{
     display: flex;
     flex-direction: column;
@@ -32,6 +38,53 @@ body {
     text-align: center;
     width: 350px;
     height: 600px;
+}
+
+.form-button{
+    background-color: #FAB500;
+    border-color: transparent;
+    border-radius: 18px;
+    text-align: center;
+    margin-top: 10%;
+    width: 230px;
+    height: 43px;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    color:#172747;
+   
+}
+
+#email,
+#password{
+    padding-left: 10px;
+    border: 100rem;
+    border-radius: 18px;
+    outline: none;
+    text-align: left;
+    margin-top: 10%;
+    width: 230px;
+    height: 43px;
+    font-size: 15px;
+    font-weight: regular;
+    color:#172747
+  
+}
+
+texto{
+    margin: 10px;
+    font-size: medium;
+}
+
+h3{
+    margin: 30px;
+    font-size: large;
+}
+
+.btnGmail{
+   background-color: transparent;
+   border-color: transparent;
+   margin: 20px;
 }
 
 @media screen and (max-width: 768px){
@@ -52,5 +105,11 @@ body {
         width: 100%;
         height: 100%;
 
+    }
+
+    .form-button{
+        text-align: center;
+        width: 230px;
+        height: 43px;
     }
 }
