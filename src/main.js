@@ -25,7 +25,7 @@ export const onNavigate = (pathname) => {
     rootDiv.removeChild(rootDiv.firstChild);
   }
 
-  rootDiv.innerHTML = (routes[pathname]);
+  rootDiv.appendChild(routes[window.location.pathname]);
 };
 
 routes = {

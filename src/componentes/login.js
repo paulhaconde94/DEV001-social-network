@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { signIn, signInGoogle } from '../lib/firebase.js';
 
 export const Login = (onNavigate) => {
@@ -43,7 +44,8 @@ export const Login = (onNavigate) => {
       .then(() => {
         onNavigate('/muro');
       }).catch((error) => {
-        console.log(error);
+        // eslint-disable-next-line no-console
+        console.log('ERROR !');
       });
   });
   return loginDiv;
