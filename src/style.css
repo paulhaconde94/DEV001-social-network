@@ -87,6 +87,14 @@ h3{
    margin: 20px;
 }
 
+.divPost{
+    text-align: center;
+    background: #5b67a8;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 768px){
     body{
         justify-content: center;
@@ -112,4 +120,5 @@ h3{
         width: 230px;
         height: 43px;
     }
+
 }

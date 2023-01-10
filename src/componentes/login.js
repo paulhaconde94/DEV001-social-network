@@ -32,7 +32,7 @@ export const Login = (onNavigate) => {
     const correo = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
     signIn(correo, password)
-      .then(() => onNavigate('/muro'))
+      .then((userCredential) => { onNavigate('/muro'); })
       .catch((error) => {
         // eslint-disable-next-line no-console
         console.log(error);
