@@ -1,6 +1,7 @@
-import { ongetPost, sendPost } from '../lib/firebase';
+import { signOut } from 'firebase/auth';
+import { ongetPost, sendPost, auth } from '../lib/firebase';
 
-export const Muro = () => {
+export const Muro = (onNavigate) => {
   const muroDiv = document.createElement('div');
   muroDiv.innerHTML = `
   <div class = 'navPost'>
@@ -11,12 +12,19 @@ export const Muro = () => {
     </figure>
   <div class = 'postContainer'>
   <label for="comment" id = 'commentText'>Comentar!</label>
-  <textarea id="task-comment" rows="3" placeholder="Post..."></textarea>
+  <textarea id="task-comment" rows="3" placeholder="Escribe una frase..."></textarea>
   <span class='errorMessage'></span>
   <button id="btn-task-save">Publicar!</button>
   </div>
   <div id="comments-container"></div>
   `;
+
+  muroDiv.querySelector('#logout').addEventListener('click', (e) => {
+    signOut(auth).then(() => {
+      onNavigate('/');
+    }).catch((error) => {
+    });
+  });
   muroDiv.querySelector('#btn-task-save').addEventListener('click', (e) => {
     e.preventDefault();
     const writePost = muroDiv.querySelector('#task-comment');
