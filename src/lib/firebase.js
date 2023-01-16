@@ -6,6 +6,8 @@ import {
   getDocs,
   getFirestore,
   onSnapshot,
+  deleteDoc,
+  doc,
 } from 'firebase/firestore';
 import {
   getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
@@ -36,3 +38,5 @@ export const sendPost = (post) => addDoc(collection(db, 'comment'), { post });
 export const getPost = () => getDocs(collection(db, 'comment'));
 
 export const ongetPost = (callback) => onSnapshot(collection(db, 'comment'), callback);
+
+export const deletePost = (idDoc) => deleteDoc(doc(db, 'comment', idDoc));
