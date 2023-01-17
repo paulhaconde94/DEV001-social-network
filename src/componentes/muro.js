@@ -1,12 +1,13 @@
-import { signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import {
-  ongetPost, sendPost, auth, deletePost,
+  ongetPost, sendPost, deletePost, auth,
 } from '../lib/firebase';
 
 export const Muro = (onNavigate) => {
   const muroDiv = document.createElement('div');
   muroDiv.innerHTML = `
   <div class = 'navPost'>
+  <h3  id = 'userName'> Nombre </h3>
   <button id="logout">Log out</button>
   </div>
   <figure>
@@ -20,6 +21,11 @@ export const Muro = (onNavigate) => {
   </div>
   <div id="comments-container"></div>
   `;
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      muroDiv.querySelector('#userName').textContent = user.displayName;
+    }
+  });
   muroDiv.querySelector('#logout').addEventListener('click', () => {
     signOut(auth).then(() => {
       onNavigate('/');
@@ -30,7 +36,7 @@ export const Muro = (onNavigate) => {
   muroDiv.querySelector('#btn-task-save').addEventListener('click', (e) => {
     e.preventDefault();
     const writePost = muroDiv.querySelector('#task-comment');
-    sendPost(writePost.value);
+    sendPost(writePost.value, auth.currentUser.displayName);
   });
   const toPost = async () => {
     ongetPost((querySnapshot) => {
@@ -41,6 +47,7 @@ export const Muro = (onNavigate) => {
         publicados += `
         <div class='commentCreated'>
         <div class= 'headerPost'>
+        <h6 id= 'User' > ${toComment.author} </h6>
         <div class= 'divPost' placeholder="Post..."> <p> ${toComment.post} </p>
         <input type="button" class="btn-delete" data-id="${doc.id}" value="&#128465">
         </div>

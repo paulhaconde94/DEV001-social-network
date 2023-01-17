@@ -33,7 +33,7 @@ export const signIn = (email, password) => signInWithEmailAndPassword(auth, emai
 
 export const signInGoogle = () => signInWithPopup(auth, provider);
 
-export const sendPost = (post) => addDoc(collection(db, 'comment'), { post });
+export const sendPost = (post, author) => addDoc(collection(db, 'comment'), { post, author });
 
 export const getPost = () => getDocs(collection(db, 'comment'));
 
