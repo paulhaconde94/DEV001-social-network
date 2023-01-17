@@ -1,5 +1,7 @@
 import { signOut } from 'firebase/auth';
-import { ongetPost, sendPost, auth, deletePost, } from '../lib/firebase';
+import {
+  ongetPost, sendPost, auth, deletePost,
+} from '../lib/firebase';
 
 export const Muro = (onNavigate) => {
   const muroDiv = document.createElement('div');
@@ -18,10 +20,11 @@ export const Muro = (onNavigate) => {
   </div>
   <div id="comments-container"></div>
   `;
-  muroDiv.querySelector('#logout').addEventListener('click', (e) => {
+  muroDiv.querySelector('#logout').addEventListener('click', () => {
     signOut(auth).then(() => {
       onNavigate('/');
     }).catch((error) => {
+      console.error(error);
     });
   });
   muroDiv.querySelector('#btn-task-save').addEventListener('click', (e) => {
@@ -39,14 +42,16 @@ export const Muro = (onNavigate) => {
         <div class='commentCreated'>
         <div class= 'headerPost'>
         <div class= 'divPost' placeholder="Post..."> <p> ${toComment.post} </p>
-        <input type="button" id="btn-delete" value = '&#128465'>
+        <input type="button" class="btn-delete" data-id="${doc.id}" value="&#128465">
         </div>
         `;
       });
       containerPost.innerHTML = publicados;
-      muroDiv.querySelector('#btn-delete').addEventListener('click', (e) => {
-        e.preventDefault();
-        deletePost('680DOdcIDOJEbKOvpaG5');
+      muroDiv.querySelectorAll('.btn-delete').forEach((button) => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          deletePost(button.dataset.id);
+        });
       });
     });
   };
