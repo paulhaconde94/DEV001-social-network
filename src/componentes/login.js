@@ -4,7 +4,7 @@ export const Login = (onNavigate) => {
   const loginDiv = document.createElement('div');
   const template = `
   <div class="formBox" id="formBox">
-  <img class=“logo” src=images/logos.png>
+  <img class="logo" src=images/logoInicio.png>
   <form id="loginForm" class="form">
   <div class="formgroup">
     <input type="email" id="email" placeholder="Correo" required>
@@ -14,15 +14,13 @@ export const Login = (onNavigate) => {
     <span class="eyeicon" id="eyeIcon"></span>
   </div>
     <button id="btnIniciar" class="form-button" type="submit">Iniciar Sesión</button>
-    <div class=“texto”>
-      <p> ---- ó ---- </p>
-    </div>
-  </form>
-  <div class="signUpgoogle">
+      <h3 class=“option”> ---- ó ---- </h3>
+      <div class="signUpgoogle">
       <h3>Continua con Google</h3>
       <button id="btnGmail" class="btnGmail" type="button"><img class="google-icon" src="images/google.png"></button>
   </div>
-</div> `;
+    </div>
+  </form> `;
   // Muestra template para visualizar contenido  de la pagina
   loginDiv.innerHTML = template;
   const btnIniciar = loginDiv.querySelector('#btnIniciar');

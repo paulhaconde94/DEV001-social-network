@@ -6,19 +6,19 @@ import {
 export const Muro = (onNavigate) => {
   const muroDiv = document.createElement('div');
   muroDiv.innerHTML = `
-  <div class = 'navPost'>
-  <h3  id = 'userName'> Nombre </h3>
+  <div class="formBox2" id="formBox2">
+  <div class = "navPost">
+  <h3  id = "userName" class = "userName"> Nombre </h3>
   <button id="logout">Log out</button>
   </div>
   <figure>
-      <img class="IconoPost" src="images/logoMuro.png" alt="Icono">
+      <img class="IconoPost" src="images/logoWall.png" alt="Icono">
     </figure>
   <div class = 'postContainer'>
-  <label for="comment" id = 'commentText'>Comentar!</label>
+  <label for="comment" id = 'commentText'>Comparte!</label>
   <textarea id="task-comment" rows="3" placeholder="Escribe una frase..."></textarea>
   <span class='errorMessage'></span>
   <button id="btn-task-save">Publicar!</button>
-  </div>
   <div id="comments-container"></div>
   `;
   onAuthStateChanged(auth, (user) => {
@@ -46,10 +46,10 @@ export const Muro = (onNavigate) => {
         const toComment = doc.data();
         publicados += `
         <div class='commentCreated'>
-        <div class= 'headerPost'>
-        <h6 id= 'User' > ${toComment.author} </h6>
-        <div class= 'divPost' placeholder="Post..."> <p> ${toComment.post} </p>
+        <h6 id= 'userName2' > ${toComment.author} </h6>
+        <div class= 'divPost'> <p> ${toComment.post} </p>
         <input type="button" class="btn-delete" data-id="${doc.id}" value="&#128465">
+        </div>
         </div>
         `;
       });
