@@ -1,14 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
-
-// eslint-disable-next-line no-console, spaced-comment
-//console.log('Hola Mundo');
-
-// eslint-disable-next-line spaced-comment
-//myFunction();
-
-/* eslint-disable import/no-cycle */
 import { Login } from './componentes/login.js';
 import { Muro } from './componentes/muro.js';
 

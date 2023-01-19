@@ -88,11 +88,6 @@ body {
   
 }
 
-texto{
-    margin: 10px;
-    font-size: medium;
-}
-
 h3{
     margin: 30px;
     font-size: large;
@@ -150,7 +145,6 @@ h3{
     padding: 10px;
     background: rgba(255, 255, 255, 0.72);
     border-radius: 8px;
-    padding: 10px;
     color: #172747;
     font-weight: 800;
     letter-spacing: 1px;
@@ -200,8 +194,8 @@ h3{
     font-weight:500;
     margin-top: 10px;
     color: #172747;
-    border-style: none;
 }
+
 .btn-delete:hover{
     color: #FAB500;
 }
