@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { collection } from 'firebase/firestore';
+import { collection, doc } from 'firebase/firestore';
 import {
+  deletePost,
   getPost, ongetPost, sendPost, signIn, signInGoogle,
 } from '../src/lib/firebase';
 
@@ -36,25 +37,37 @@ describe('Test signInGoogle', () => {
 });
 
 // Test sendPost
+
 describe('Test sendPost', () => {
-  it('deberia llamar la funcion sendPost', () => {
+  it('deberia llamar la funcion collection', () => {
     sendPost();
     expect(collection).toHaveBeenCalled();
   });
 });
 
 // Test getPost
+
 describe('Test getPost', () => {
-  it('deberia llamar la funcion getPost', () => {
+  it('deberia llamar la funcion collection', () => {
     getPost();
     expect(collection).toHaveBeenCalled();
   });
 });
 
 // Test ongetPost
+
 describe('Test ongetPost', () => {
-  it('deberia llamar la funcion ongetPost', () => {
+  it('deberia llamar la funcion collection', () => {
     ongetPost();
     expect(collection).toHaveBeenCalled();
+  });
+});
+
+// Test deletePost
+
+describe('Test deletePost', () => {
+  it('deberia llamar la funcion doc', () => {
+    deletePost();
+    expect(doc).toHaveBeenCalled();
   });
 });
