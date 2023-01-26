@@ -12,7 +12,7 @@ export const Muro = (onNavigate) => {
   <button id="logout">Log out</button>
   </div>
   <figure>
-      <img class="IconoPost" src="images/logoWall.png" alt="Icono">
+      <img class="IconoPost" src="https://i.ibb.co/8X5MHv7/logoWall.png" alt="Icono">
     </figure>
   <div class = 'postContainer'>
   <label for="comment" id = 'commentText'>Comparte!</label>

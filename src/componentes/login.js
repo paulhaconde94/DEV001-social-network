@@ -4,7 +4,7 @@ export const Login = (onNavigate) => {
   const loginDiv = document.createElement('div');
   const template = `
   <div class="formBox" id="formBox">
-  <img class="logo" src=images/logoInicio.png>
+  <img class="logo" src="https://i.ibb.co/k20tqP7/logo-Inicio.png"  >
   <form id="loginForm" class="form">
   <div class="formgroup">
     <input type="email" id="email" placeholder="Correo" required>
@@ -17,7 +17,7 @@ export const Login = (onNavigate) => {
       <h3 class=“option”> ---- ó ---- </h3>
       <div class="signUpgoogle">
       <h3>Continua con Google</h3>
-      <button id="btnGmail" class="btnGmail" type="button"><img class="google-icon" src="images/google.png"></button>
+      <button id="btnGmail" class="btnGmail" type="button"><img class="google-icon" src="https://i.ibb.co/8KXqhd6/google.png"></button>
   </div>
     </div>
   </form> `;
