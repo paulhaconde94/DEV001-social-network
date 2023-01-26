@@ -22,7 +22,6 @@ describe('Test signIn', () => {
   it('debería llamar correctamente a signInWithEmailAndPassword', () => {
     signIn();
     document.getElementById('btnIniciar').click();
-
     expect(signInWithEmailAndPassword).toHaveBeenCalled();
   });
 });
@@ -32,6 +31,7 @@ describe('Test signIn', () => {
 describe('Test signInGoogle', () => {
   it('debería llamar la función signInWithPopup', () => {
     signInGoogle();
+    document.getElementById('btnGmail').click();
     expect(signInWithPopup).toHaveBeenCalled();
   });
 });
